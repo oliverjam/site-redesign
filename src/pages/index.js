@@ -19,15 +19,21 @@ const Title = styled.h1`
   text-shadow: ${longShadow('#555', 20)};
 `;
 
-const Wrapper = styled(Section)`
+const Wrapper = styled.section`
   display: flex;
   align-items: center;
-  max-width: 40em;
+  max-width: 40rem;
   min-height: 50vh;
 `;
 
+const Container = styled.div`
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const IntroSection = () => (
-  <Wrapper mx={[2, 3, 4]}>
+  <Wrapper>
     <Title>I'm a frontend developer in London.</Title>
   </Wrapper>
 );
@@ -37,11 +43,11 @@ class BlogIndex extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const posts = this.props.data.allMarkdownRemark.edges;
     return (
-      <div>
+      <Container>
         <Helmet title={siteTitle} />
         <IntroSection id="intro" />
         <PostSection posts={posts} id="posts" />
-      </div>
+      </Container>
     );
   }
 }

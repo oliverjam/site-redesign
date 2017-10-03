@@ -10,7 +10,7 @@ import Header from '../components/Header';
 const Container = styled.div`
   ${space};
   position: relative;
-  min-height: 150vh;
+  min-height: 100vh;
   background-image: linear-gradient(transparent 100vh, #9f9f9f 100vh);
   overflow: hidden;
 `;

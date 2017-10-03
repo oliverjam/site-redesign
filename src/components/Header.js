@@ -50,7 +50,7 @@ const NavLink = styled(Link)`
   align-items: center;
   height: 100%;
   transition: background-color 0.2s;
-  @media (hover: hover) {
+  @media (max-width: 40em and hover: hover) {
     &:hover {
       background-color: #eee;
     }

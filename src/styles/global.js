@@ -37,8 +37,9 @@ injectGlobal`
     color: inherit;
     text-decoration: none;
     text-decoration-skip: ink;
+    text-decoration-color: orange;
     &:hover {
-      text-decoration: underline;
+      text-decoration-line: underline;
     }
   }
 

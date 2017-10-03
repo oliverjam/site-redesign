@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { space, width, flexDirection } from 'styled-system';
+import { space, flexDirection } from 'styled-system';
 import Link from 'gatsby-link';
-import { Section, P } from './Blocks';
+import { P } from './Blocks';
 
 const Posts = styled.div`
-  display: flex;
-  ${width};
   ${space};
   ${flexDirection};
+  display: flex;
+  max-width: 60rem;
   background-color: #fff;
   border: 1px solid #eee;
   border-radius: 2px;
@@ -29,14 +29,19 @@ const PostLink = styled(Link)`
     background-color: #eee;
     text-decoration: none;
     & h3 {
-      text-decoration: underline;
+      text-decoration-line: underline;
+      text-decoration-color: orange;
     }
   }
 `;
 
 const PostSection = ({ posts }) => (
-  <Section mx={[2, 3, 4]} aria-label="Recent Posts">
-    <Posts flexDirection={['column', 'column', 'row']}>
+  <section aria-label="Recent Posts">
+    <Posts
+      flexDirection={['column', 'column', 'row']}
+      maxWidth={'60rem'}
+      mx={'auto'}
+    >
       {posts.map(post => {
         if (post.node.path !== '/404/') {
           const title = post.node.frontmatter.title || post.node.path;
@@ -55,7 +60,7 @@ const PostSection = ({ posts }) => (
         }
       })}
     </Posts>
-  </Section>
+  </section>
 );
 
 export default PostSection;
