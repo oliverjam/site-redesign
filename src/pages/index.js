@@ -14,7 +14,7 @@ const longShadow = (col, len) =>
   ).join(', ');
 
 const Title = styled.h1`
-  font-size: 3.75rem;
+  font-size: 4rem;
   color: orange;
   text-shadow: ${longShadow('#555', 20)};
 `;

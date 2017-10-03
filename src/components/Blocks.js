@@ -16,6 +16,11 @@ export const List = styled.ul`
   ${space};
 `;
 
+export const Li = styled.li`
+  ${width};
+  ${space};
+`;
+
 export const P = styled.p`
   ${width};
   ${space};

@@ -5,7 +5,7 @@ import { space } from 'styled-system';
 import theme from '../styles/theme';
 import '../styles/global';
 
-import Header from '../components/header';
+import Header from '../components/Header';
 
 const Container = styled.div`
   ${space};
@@ -13,27 +13,6 @@ const Container = styled.div`
   min-height: 150vh;
   background-image: linear-gradient(transparent 100vh, #9f9f9f 100vh);
   overflow: hidden;
-  @media (min-width: 60em) {
-    ${'' /* background-image: linear-gradient(transparent 50rem, #777 50rem); */};
-  }
-  ${'' /* &::after {
-    content: '';
-    position: absolute;
-    top: -10rem;
-    left: -1rem;
-    width: 0;
-    height: 0;
-    border: 28rem solid #777;
-    border-left-color: transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    z-index: -10;
-    @media (min-width: 60em) {
-      top: -20rem;
-      left: 0rem;
-      border-width: 35rem;
-    }
-  } */};
 `;
 
 const Background = styled.svg`
