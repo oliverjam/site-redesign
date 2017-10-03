@@ -24,6 +24,8 @@ const Wrapper = styled.section`
   align-items: center;
   max-width: 40rem;
   min-height: 50vh;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
 
 const Container = styled.div`

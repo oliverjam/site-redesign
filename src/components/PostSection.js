@@ -26,11 +26,15 @@ const Post = styled.article`
 const PostLink = styled(Link)`
   transition: background-color 0.2s ease-out;
   &:hover {
-    background-color: #eee;
     text-decoration: none;
-    & h3 {
-      text-decoration-line: underline;
-      text-decoration-color: orange;
+  }
+  @media (min-width: 40em), (hover: hover) {
+    &:hover {
+      background-color: #eee;
+      & h3 {
+        text-decoration-line: underline;
+        text-decoration-color: orange;
+      }
     }
   }
 `;

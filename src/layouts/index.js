@@ -29,7 +29,7 @@ class Template extends React.Component {
     const { location, children } = this.props;
     return (
       <ThemeProvider theme={theme}>
-        <Container py={[2, 3]} px={[2, 3, 4]}>
+        <Container pt={[2, 3]} pb={4} px={[2, 3, 4]}>
           <Background viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon points="85 20 100 38 100 100 0 100 0 85" fill="#777" />
             <polygon points="60 15 100 60 100 100 0 100 0 65" fill="#9f9f9f" />
