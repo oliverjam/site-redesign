@@ -59,19 +59,19 @@ export default props => (
     <Nav ml={'auto'}>
       <List>
         <li>
-          <Link to="https://twitter.com/_oliverjam" aria-label="Twitter">
-            <Icon name="twitter" />
-          </Link>
+          <a href="https://twitter.com/_oliverjam" aria-label="Twitter">
+            <Icon name="twitter" fill />
+          </a>
         </li>
         <li>
-          <Link to="https://github.com/oliverjam" aria-label="Github">
-            <Icon name="github" />
-          </Link>
+          <a href="https://github.com/oliverjam" aria-label="Github">
+            <Icon name="github" fill />
+          </a>
         </li>
         <li>
-          <Link to="https://linkedin.com/oliverjam" aria-label="Codepen">
+          <a href="https://linkedin.com/oliverjam" aria-label="Codepen">
             <Icon name="codepen" />
-          </Link>
+          </a>
         </li>
       </List>
     </Nav>

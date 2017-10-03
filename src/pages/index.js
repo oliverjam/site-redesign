@@ -2,14 +2,34 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 import { Section } from '../components/Blocks';
 import PostSection from '../components/PostSection';
 
+const longShadow = (col, len) =>
+  Array.from(
+    { length: len },
+    (x, i) => `${i / 2 + 0.5}px ${i / 2 + 0.5}px ${col}`
+  ).join(', ');
+
+const Title = styled.h1`
+  font-size: 3.75rem;
+  color: orange;
+  text-shadow: ${longShadow('#555', 20)};
+`;
+
+const Wrapper = styled(Section)`
+  display: flex;
+  align-items: center;
+  max-width: 40em;
+  min-height: 50vh;
+`;
+
 const IntroSection = () => (
-  <Section mx={[2, 3, 4]} py={4} my={4}>
-    <h1>Oli is a frontend developer in London.</h1>
-  </Section>
+  <Wrapper mx={[2, 3, 4]}>
+    <Title>I'm a frontend developer in London.</Title>
+  </Wrapper>
 );
 
 class BlogIndex extends React.Component {

@@ -9,15 +9,39 @@ import Header from '../components/header';
 
 const Container = styled.div`
   ${space};
-  min-height: 100vh;
+  position: relative;
+  min-height: 150vh;
+  background-image: linear-gradient(transparent 100vh, #9f9f9f 100vh);
+  overflow: hidden;
+  @media (min-width: 60em) {
+    ${'' /* background-image: linear-gradient(transparent 50rem, #777 50rem); */};
+  }
+  ${'' /* &::after {
+    content: '';
+    position: absolute;
+    top: -10rem;
+    left: -1rem;
+    width: 0;
+    height: 0;
+    border: 28rem solid #777;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    z-index: -10;
+    @media (min-width: 60em) {
+      top: -20rem;
+      left: 0rem;
+      border-width: 35rem;
+    }
+  } */};
 `;
 
 const Background = styled.svg`
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  fill: none;
+  right: 0;
+  min-width: 100%;
+  height: 100%;
   z-index: -10;
 `;
 
@@ -27,25 +51,9 @@ class Template extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Container py={[2, 3]} px={[2, 3, 4]}>
-          <Background viewBox="0 0 10 10" preserveAspectRatio="none">
-            {/* <path d="M9 0 L-2 7 h13 v-10 z" fill="#9f9f9f" />
-          <path d="M10 0 L-2 8 h12 z" fill="#777" /> */}
-            <rect
-              x="-4"
-              y="7"
-              width="10"
-              height="10"
-              transform="rotate(-45)"
-              fill="#9f9f9f"
-            />
-            <rect
-              x="-15.5"
-              y="5"
-              width="20"
-              height="20"
-              transform="rotate(-45)"
-              fill="#777"
-            />
+          <Background viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="85 20 100 38 100 100 0 100 0 85" fill="#777" />
+            <polygon points="60 15 100 60 100 100 0 100 0 65" fill="#9f9f9f" />
           </Background>
           <Header />
           {children()}
