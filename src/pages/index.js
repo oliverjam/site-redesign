@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { transparentize } from 'polished';
 
 import { Section } from '../components/Blocks';
+import Mountains from '../components/Mountains';
 import PostSection from '../components/PostSection';
 
 const longShadow = (col, len) =>
@@ -26,6 +27,10 @@ const Wrapper = styled.section`
   min-height: 50vh;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  @media (min-width: 40em) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 `;
 
 const Container = styled.div`
@@ -43,12 +48,13 @@ const IntroSection = () => (
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const recentPosts = this.props.data.allMarkdownRemark.edges.slice(0, 3);
     return (
       <Container>
         <Helmet title={siteTitle} />
+        {/* <Mountains /> */}
         <IntroSection id="intro" />
-        <PostSection posts={posts} id="posts" />
+        <PostSection posts={recentPosts} id="posts" />
       </Container>
     );
   }

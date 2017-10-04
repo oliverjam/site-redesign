@@ -9,8 +9,8 @@ const Posts = styled.div`
   ${flexDirection};
   display: flex;
   max-width: 60rem;
-  background-color: #fff;
-  border: 1px solid #eee;
+  background-color: ${p => p.theme.colors.bg};
+  border: 1px solid ${p => p.theme.colors.grey0};
   border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
@@ -25,15 +25,20 @@ const Post = styled.article`
 
 const PostLink = styled(Link)`
   transition: background-color 0.2s ease-out;
+  text-decoration: none;
   &:hover {
-    text-decoration: none;
+    color: inherit;
+    & h3 {
+      text-decoration-line: none;
+    }
   }
   @media (min-width: 40em), (hover: hover) {
     &:hover {
-      background-color: #eee;
+      background-color: ${p => p.theme.colors.grey0};
       & h3 {
+        color: inherit;
         text-decoration-line: underline;
-        text-decoration-color: orange;
+        text-decoration-color: ${p => p.theme.colors.primary};
       }
     }
   }

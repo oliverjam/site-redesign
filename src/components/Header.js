@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
 import Icon from './icon';
+import t from '../styles/theme';
 
 const Wrapper = styled.header`
   display: flex;
@@ -22,7 +23,7 @@ const Nav = styled.nav`
   bottom: 0;
   height: 3.5rem;
   display: flex;
-  background-color: #fff;
+  background-color: ${t.colors.bg};
   box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
   @media (min-width: 40em) {
     position: initial;
@@ -50,11 +51,24 @@ const NavLink = styled(Link)`
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-decoration-line: none;
   transition: background-color 0.2s;
-  @media (max-width: 40em and hover: hover) {
+  @media (min-width: 40em) and (hover: hover) {
     &:hover {
-      background-color: #eee;
+      color: inherit;
+      text-decoration-line: underline;
     }
+  }
+  @media (max-width: 40em) and (hover: hover) {
+    &:hover {
+      background-color: ${t.colors.grey0};
+    }
+  }
+`;
+
+const IconLink = styled.a`
+  &:hover {
+    color: ${t.colors.primary};
   }
 `;
 
@@ -68,11 +82,15 @@ export default props => (
       strokeWidth="2"
       fill="white"
     >
-      <path d="M4 2 v24 a3,1 0 0 0 24,0 v-24 z" strokeWidth="2" fill="orange" />
+      <path
+        d="M4 2 v24 a3,1 0 0 0 24,0 v-24 z"
+        strokeWidth="2"
+        fill={t.colors.primary}
+      />
       <path d="M4 6 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0" />
       <path d="M3 2 h26 v3 h-26 z" fill="currentcolor" />
-      {/* <path d="M10 14 v8 a3,1 0 0 0 12,0 v-8 a8,1 0 0 1 -12,0" /> */}
-      <circle cx="16" cy="19" r="5" />
+      <path d="M10 14 v8 a3,1 0 0 0 12,0 v-8 a8,1 0 0 1 -12,0" />
+      {/* <circle cx="16" cy="19" r="5" /> */}
     </Logo>
     <Nav>
       <List>
@@ -93,19 +111,19 @@ export default props => (
     <Social ml={'auto'}>
       <List>
         <Li ml={2}>
-          <a href="https://twitter.com/_oliverjam" aria-label="Twitter">
+          <IconLink href="https://twitter.com/_oliverjam" aria-label="Twitter">
             <Icon name="twitter" fill />
-          </a>
+          </IconLink>
         </Li>
         <Li ml={2}>
-          <a href="https://github.com/oliverjam" aria-label="Github">
+          <IconLink href="https://github.com/oliverjam" aria-label="Github">
             <Icon name="github" fill />
-          </a>
+          </IconLink>
         </Li>
         <Li ml={2}>
-          <a href="https://linkedin.com/oliverjam" aria-label="Codepen">
+          <IconLink href="https://linkedin.com/oliverjam" aria-label="Codepen">
             <Icon name="codepen" />
-          </a>
+          </IconLink>
         </Li>
       </List>
     </Social>

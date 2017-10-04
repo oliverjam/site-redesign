@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+import t from './theme';
 
 injectGlobal`
   *,
@@ -11,7 +12,6 @@ injectGlobal`
 
   html {
     box-sizing: border-box;
-    ${'' /* font-size: calc(1rem + 0.25vw); */}
   }
 
   @media (min-width: 40em) {
@@ -22,7 +22,7 @@ injectGlobal`
 
   body {
     font-family: BlinkMacSystemFont;
-    color: #333;
+    color: ${t.colors.grey3};
     line-height: 1.5;
   }
 
@@ -35,11 +35,12 @@ injectGlobal`
 
   a {
     color: inherit;
-    text-decoration: none;
     text-decoration-skip: ink;
-    text-decoration-color: orange;
+    text-decoration-line: underline;
+    text-decoration-color: ${t.colors.primary};
+    transition: color 0.2s;
     &:hover {
-      text-decoration-line: underline;
+      color: ${t.colors.primary};
     }
   }
 

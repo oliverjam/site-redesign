@@ -1,21 +1,39 @@
 import React from 'react';
+import styled from 'styled-components';
+import { space } from 'styled-system';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
-import get from 'lodash/get';
+
+const Container = styled.main`
+  ${space};
+  max-width: 42rem;
+  background-color: ${p => p.theme.colors.bg};
+  border-radius: 2px;
+`;
+
+const Header = styled.header``;
+
+const Date = styled.small`font-size: 0.85rem;`;
+
+const Markdown = styled.div`
+  margin-top: 1em;
+  & > * + * {
+    margin-top: 1em;
+  }
+`;
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title');
-
+    const { title: siteTitle } = this.props.data.site.siteMetadata;
     return (
-      <div>
+      <Container mt={[2, 4]} p={1}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-      </div>
+        <Header>
+          <h1>{post.frontmatter.title}</h1>
+          <Date>{post.frontmatter.date}</Date>
+        </Header>
+        <Markdown dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Container>
     );
   }
 }

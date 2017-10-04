@@ -9,6 +9,7 @@ const Icon = styled.svg`
   stroke-width: 3;
   stroke-linejoin: round;
   stroke-linecap: round;
+  transition: color 0.2s, fill 0.2s;
 `;
 
 export default ({ size, width, height, name, fill }) => (
