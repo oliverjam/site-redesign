@@ -23,7 +23,7 @@ const Background = styled.svg`
   min-width: 100%;
   height: 100%;
   z-index: -10;
-  @media (min-width: 40em) {
+  @media (min-width: 60em) {
     top: -15%;
     height: 125%;
   }

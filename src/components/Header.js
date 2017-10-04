@@ -29,6 +29,7 @@ const Nav = styled.nav`
     margin-left: 2rem;
     height: auto;
     box-shadow: none;
+    background-color: transparent;
   }
 `;
 
@@ -75,16 +76,16 @@ export default props => (
     </Logo>
     <Nav>
       <List>
-        <Li mr={[0, 3]}>
+        <Li mr={[0, 2, 3]}>
           <NavLink to="#">Home</NavLink>
         </Li>
-        <Li mr={[0, 3]}>
+        <Li mr={[0, 2, 3]}>
           <NavLink to="#">About</NavLink>
         </Li>
-        <Li mr={[0, 3]}>
+        <Li mr={[0, 2, 3]}>
           <NavLink to="#">Blog</NavLink>
         </Li>
-        <Li mr={[0, 3]}>
+        <Li mr={[0, 2, 3]}>
           <NavLink to="#">Contact</NavLink>
         </Li>
       </List>
