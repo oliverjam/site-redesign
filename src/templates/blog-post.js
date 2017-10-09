@@ -5,19 +5,34 @@ import Helmet from 'react-helmet';
 
 const Container = styled.main`
   ${space};
-  max-width: 42rem;
+  max-width: 60ch;
   background-color: ${p => p.theme.colors.bg};
   border-radius: 2px;
 `;
 
-const Header = styled.header``;
+const Header = styled.header`
+  & > h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+`;
 
 const Date = styled.small`font-size: 0.85rem;`;
 
 const Markdown = styled.div`
+  font-size: 1.125em;
   margin-top: 1em;
   & > * + * {
     margin-top: 1em;
+  }
+  & blockquote {
+    font-style: italic;
+    padding-left: ${p => p.theme.space[2]};
+    border-left: 0.5em solid ${p => p.theme.colors.primary};
+  }
+  & cite {
+    font-style: normal;
+    font-size: 0.85em;
   }
 `;
 
@@ -26,7 +41,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const { title: siteTitle } = this.props.data.site.siteMetadata;
     return (
-      <Container mt={[2, 4]} p={1}>
+      <Container mt={[2, 3]} p={1}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>

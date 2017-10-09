@@ -39,6 +39,7 @@ const Social = styled.nav`${space};`;
 const List = styled.ul`
   display: flex;
   flex: 1;
+  padding: 0;
 `;
 
 const Li = styled.li`
@@ -51,24 +52,27 @@ const NavLink = styled(Link)`
   justify-content: center;
   align-items: center;
   height: 100%;
-  text-decoration-line: none;
+  text-decoration: none;
   transition: background-color 0.2s;
   @media (min-width: 40em) and (hover: hover) {
     &:hover {
       color: inherit;
-      text-decoration-line: underline;
+      text-decoration: underline;
     }
   }
   @media (max-width: 40em) and (hover: hover) {
     &:hover {
+      color: inherit;
       background-color: ${t.colors.grey0};
     }
   }
 `;
 
 const IconLink = styled.a`
-  &:hover {
-    color: ${t.colors.primary};
+  @media (hover: hover) {
+    &:hover {
+      color: ${t.colors.primary};
+    }
   }
 `;
 

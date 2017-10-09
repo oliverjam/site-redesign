@@ -21,7 +21,7 @@ injectGlobal`
   }
 
   body {
-    font-family: BlinkMacSystemFont;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: ${t.colors.grey3};
     line-height: 1.5;
   }
@@ -42,6 +42,11 @@ injectGlobal`
     &:hover {
       color: ${t.colors.primary};
     }
+  }
+
+  ul,
+  ol {
+    padding-left: 1em;
   }
 
   ul {

@@ -15,7 +15,7 @@ const Posts = styled.div`
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
-const Post = styled.article`
+const Card = styled.article`
   ${space};
   &:first-child {
     margin-top: 0;
@@ -29,7 +29,7 @@ const PostLink = styled(Link)`
   &:hover {
     color: inherit;
     & h3 {
-      text-decoration-line: none;
+      text-decoration: none;
     }
   }
   @media (min-width: 40em), (hover: hover) {
@@ -37,8 +37,7 @@ const PostLink = styled(Link)`
       background-color: ${p => p.theme.colors.grey0};
       & h3 {
         color: inherit;
-        text-decoration-line: underline;
-        text-decoration-color: ${p => p.theme.colors.primary};
+        text-decoration: underline;
       }
     }
   }
@@ -47,7 +46,7 @@ const PostLink = styled(Link)`
 const PostSection = ({ posts }) => (
   <section aria-label="Recent Posts">
     <Posts
-      flexDirection={['column', 'column', 'row']}
+      flexDirection={posts.length >= 3 ? ['column', 'column', 'row'] : 'column'}
       maxWidth={'60rem'}
       mx={'auto'}
     >
@@ -56,14 +55,14 @@ const PostSection = ({ posts }) => (
           const title = post.node.frontmatter.title || post.node.path;
           return (
             <PostLink to={post.node.frontmatter.path}>
-              <Post p={[2, 3]} key={post.node.frontmatter.path}>
+              <Card p={[2, 3]} key={post.node.frontmatter.path}>
                 <h3>{post.node.frontmatter.title}</h3>
                 <small>{post.node.frontmatter.date}</small>
                 <P
                   mt={[1, 2]}
                   dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
                 />
-              </Post>
+              </Card>
             </PostLink>
           );
         }
