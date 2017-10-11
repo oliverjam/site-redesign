@@ -19,10 +19,11 @@ const Container = styled.div`
 class Template extends React.Component {
   render() {
     const { location, children } = this.props;
+    const pages = ['/', '/blog'];
     return (
       <ThemeProvider theme={t}>
         <Container pt={[2, 3]} pb={[5, 3]} px={[2, 3, 4]}>
-          {location.pathname === '/' && <Mountains />}
+          {pages.includes(location.pathname) && <Mountains />}
           <Header />
           {children()}
         </Container>

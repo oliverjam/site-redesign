@@ -22,7 +22,7 @@ injectGlobal`
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: ${t.colors.grey3};
+    color: ${t.colors.grey4};
     line-height: 1.5;
   }
 
@@ -37,10 +37,9 @@ injectGlobal`
     color: inherit;
     text-decoration-skip: ink;
     text-decoration-line: underline;
-    text-decoration-color: ${t.colors.primary};
-    transition: color 0.2s;
+    transition: text-decoration-color 0.1s;
     &:hover {
-      color: ${t.colors.primary};
+      text-decoration-color: ${t.colors.primary};
     }
   }
 

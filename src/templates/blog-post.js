@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 
 const Container = styled.main`
   ${space};
+  max-width: 40rem;
   max-width: 60ch;
   background-color: ${p => p.theme.colors.bg};
   border-radius: 2px;
@@ -20,10 +21,19 @@ const Header = styled.header`
 const Date = styled.small`font-size: 0.85rem;`;
 
 const Markdown = styled.div`
+  font-family: georgia, serif;
   font-size: 1.125em;
   margin-top: 1em;
   & > * + * {
     margin-top: 1em;
+  }
+  & h2,
+  & h3,
+  & h4,
+  & h5 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
   }
   & blockquote {
     font-style: italic;
@@ -38,6 +48,7 @@ const Markdown = styled.div`
 
 class BlogPostTemplate extends React.Component {
   render() {
+    console.log(this.props);
     const post = this.props.data.markdownRemark;
     const { title: siteTitle } = this.props.data.site.siteMetadata;
     return (
@@ -69,6 +80,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }

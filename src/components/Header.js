@@ -78,34 +78,33 @@ const IconLink = styled.a`
 
 export default props => (
   <Wrapper>
-    <Logo
-      viewBox="0 0 32 32"
-      fill="none"
-      strokeLinejoin="round"
-      strokeLinecap="round"
-      strokeWidth="2"
-      fill="white"
-    >
-      <path
-        d="M4 2 v24 a3,1 0 0 0 24,0 v-24 z"
+    <Link to="/">
+      <Logo
+        viewBox="0 0 32 32"
+        fill="none"
+        strokeLinejoin="round"
+        strokeLinecap="round"
         strokeWidth="2"
-        fill={t.colors.primary}
-      />
-      <path d="M4 6 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0" />
-      <path d="M3 2 h26 v3 h-26 z" fill="currentcolor" />
-      <path d="M10 14 v8 a3,1 0 0 0 12,0 v-8 a8,1 0 0 1 -12,0" />
-      {/* <circle cx="16" cy="19" r="5" /> */}
-    </Logo>
+        fill="white"
+      >
+        <path
+          d="M4 2 v24 a3,1 0 0 0 24,0 v-24 z"
+          strokeWidth="2"
+          fill={t.colors.primary}
+        />
+        <path d="M4 6 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0 a1,1 0 1 0 8,0" />
+        <path d="M3 2 h26 v3 h-26 z" fill="currentcolor" />
+        <path d="M10 14 v8 a3,1 0 0 0 12,0 v-8 a8,1 0 0 1 -12,0" />
+        {/* <circle cx="16" cy="19" r="5" /> */}
+      </Logo>
+    </Link>
     <Nav>
       <List>
-        <Li mr={[0, 2, 3]}>
-          <NavLink to="#">Home</NavLink>
-        </Li>
         <Li mr={[0, 2, 3]}>
           <NavLink to="#">About</NavLink>
         </Li>
         <Li mr={[0, 2, 3]}>
-          <NavLink to="#">Blog</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
         </Li>
         <Li mr={[0, 2, 3]}>
           <NavLink to="#">Contact</NavLink>

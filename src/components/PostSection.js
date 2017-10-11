@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { space, flexDirection } from 'styled-system';
 import Link from 'gatsby-link';
+import Title from './Title';
 import { P } from './Blocks';
 
 const Posts = styled.div`
@@ -43,10 +44,11 @@ const PostLink = styled(Link)`
   }
 `;
 
-const PostSection = ({ posts }) => (
-  <section aria-label="Recent Posts">
+const PostSection = ({ label, title, posts }) => (
+  <section aria-label={label}>
+    {title && <Title>{title}</Title>}
     <Posts
-      flexDirection={posts.length >= 3 ? ['column', 'column', 'row'] : 'column'}
+      flexDirection={posts.length <= 3 ? ['column', 'column', 'row'] : 'column'}
       maxWidth={'60rem'}
       mx={'auto'}
     >
@@ -59,7 +61,7 @@ const PostSection = ({ posts }) => (
                 <h3>{post.node.frontmatter.title}</h3>
                 <small>{post.node.frontmatter.date}</small>
                 <P
-                  mt={[1, 2]}
+                  mt={1}
                   dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
                 />
               </Card>

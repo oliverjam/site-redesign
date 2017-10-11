@@ -2,6 +2,7 @@
 title: Creating a flickering avatar using Primitive and CSS sprite animation
 date: "2016-12-01T22:40:32.169Z"
 path: "/css-sprite-animation/"
+tags: "test"
 ---
 
 I just added a flickering faux-motion effect avatar to [my About page]. The technique behind it is fun (and requires relatively little code).
