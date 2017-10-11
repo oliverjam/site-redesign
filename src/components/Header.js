@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
 import Icon from './icon';
@@ -8,6 +8,59 @@ import t from '../styles/theme';
 const Wrapper = styled.header`
   display: flex;
   align-items: center;
+`;
+
+const wobble = keyframes`
+from {
+  transform: none;
+}
+
+15% {
+  transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+}
+
+30% {
+  transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+}
+
+45% {
+  transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+}
+
+60% {
+  transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+}
+
+75% {
+  transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+}
+
+to {
+  transform: none;
+}
+`;
+const tada = keyframes`
+from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80%, 100% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+`;
+
+const LogoLink = styled(Link)`
+  &:hover {
+    animation: ${tada} 0.8s both;
+  }
 `;
 
 const Logo = styled.svg`
@@ -54,7 +107,7 @@ const NavLink = styled(Link)`
   height: 100%;
   text-decoration: none;
   transition: background-color 0.2s;
-  @media (min-width: 40em) and (hover: hover) {
+  @media (min-width: 40em) {
     &:hover {
       color: inherit;
       text-decoration: underline;
@@ -69,16 +122,15 @@ const NavLink = styled(Link)`
 `;
 
 const IconLink = styled.a`
-  @media (hover: hover) {
-    &:hover {
-      color: ${t.colors.primary};
-    }
+  display: block;
+  &:hover {
+    color: ${p => p.theme.colors.primary};
   }
 `;
 
 export default props => (
   <Wrapper>
-    <Link to="/">
+    <LogoLink to="/">
       <Logo
         viewBox="0 0 32 32"
         fill="none"
@@ -97,7 +149,7 @@ export default props => (
         <path d="M10 14 v8 a3,1 0 0 0 12,0 v-8 a8,1 0 0 1 -12,0" />
         {/* <circle cx="16" cy="19" r="5" /> */}
       </Logo>
-    </Link>
+    </LogoLink>
     <Nav>
       <List>
         <Li mr={[0, 2, 3]}>

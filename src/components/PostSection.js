@@ -46,7 +46,7 @@ const PostLink = styled(Link)`
 
 const PostSection = ({ label, title, posts }) => (
   <section aria-label={label}>
-    {title && <Title>{title}</Title>}
+    {title && <Title size={[3, 4]}>{title}</Title>}
     <Posts
       flexDirection={posts.length <= 3 ? ['column', 'column', 'row'] : 'column'}
       maxWidth={'60rem'}

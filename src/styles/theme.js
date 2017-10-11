@@ -12,4 +12,5 @@ export default {
     primary: 'orange',
     bg: '#fff',
   },
+  fontSizes: ['0.85rem', '1rem', '2rem', '3rem', '4rem'],
 };

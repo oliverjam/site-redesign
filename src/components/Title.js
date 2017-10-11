@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { fontSize } from 'styled-system';
 
 const longShadow = (col, len) =>
   Array.from(
@@ -8,7 +9,7 @@ const longShadow = (col, len) =>
   ).join(', ');
 
 const Title = styled.h1`
-  font-size: 4rem;
+  ${fontSize};
   color: orange;
   text-shadow: ${p => longShadow(p.theme.colors.grey3, 20)};
 `;
@@ -26,8 +27,8 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ({ id, big, children }) => (
+export default ({ id, big, size, children }) => (
   <Wrapper id={id} big={big}>
-    <Title>{children}</Title>
+    <Title fontSize={size}>{children}</Title>
   </Wrapper>
 );

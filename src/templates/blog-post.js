@@ -13,8 +13,11 @@ const Container = styled.main`
 
 const Header = styled.header`
   & > h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1;
+    @media (min-width: 40em) {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -35,6 +38,8 @@ const Markdown = styled.div`
       Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol';
   }
+  & h1 {
+  }
   & blockquote {
     font-style: italic;
     padding-left: ${p => p.theme.space[2]};
@@ -52,7 +57,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const { title: siteTitle } = this.props.data.site.siteMetadata;
     return (
-      <Container mt={[2, 3]} p={1}>
+      <Container mt={[2, 3]} p={0}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>
