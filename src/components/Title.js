@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fontSize } from 'styled-system';
-
-const longShadow = (col, len) =>
-  Array.from(
-    { length: len },
-    (x, i) => `${i / 2 + 0.5}px ${i / 2 + 0.5}px ${col}`
-  ).join(', ');
+import longShadow from '../styles/longShadow';
 
 const Title = styled.h1`
   ${fontSize};
@@ -18,13 +13,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   max-width: 40rem;
-  min-height: ${p => (p.big ? '50vh' : '20vh')};
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  @media (min-width: 40em) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  min-height: ${p => (p.big ? '33vh' : 'auto')};
+  margin-top: ${p => (p.big ? '1rem' : '3rem')};
+  margin-bottom: ${p => (p.big ? '1rem' : '3rem')};
 `;
 
 export default ({ id, big, size, children }) => (

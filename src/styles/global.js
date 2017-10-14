@@ -22,7 +22,7 @@ injectGlobal`
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: ${t.colors.grey4};
+    color: ${t.colors.textDark};
     line-height: 1.5;
   }
 
@@ -50,5 +50,20 @@ injectGlobal`
 
   ul {
     list-style: none;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    &:invalid {
+      box-shadow: none;
+    }
   }
 `;

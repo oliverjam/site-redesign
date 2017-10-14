@@ -1,65 +1,37 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
 import Icon from './icon';
 import t from '../styles/theme';
+import { tada } from '../styles/animation';
 
 const Wrapper = styled.header`
   display: flex;
   align-items: center;
 `;
 
-const wobble = keyframes`
-from {
-  transform: none;
-}
-
-15% {
-  transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-}
-
-30% {
-  transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-}
-
-45% {
-  transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-}
-
-60% {
-  transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-}
-
-75% {
-  transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-}
-
-to {
-  transform: none;
-}
-`;
-const tada = keyframes`
-from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  10%, 20% {
-    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-  }
-
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-
-  40%, 60%, 80%, 100% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-`;
-
 const LogoLink = styled(Link)`
+  position: relative;
   &:hover {
-    animation: ${tada} 0.8s both;
+    animation: ${tada} 0.5s both;
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.2s 0.1s ease-out;
+    z-index: -10;
   }
 `;
 
@@ -159,7 +131,7 @@ export default props => (
           <NavLink to="/blog">Blog</NavLink>
         </Li>
         <Li mr={[0, 2, 3]}>
-          <NavLink to="#">Contact</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </Li>
       </List>
     </Nav>

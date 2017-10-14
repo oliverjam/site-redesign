@@ -8,9 +8,11 @@ export default {
     grey1: hsl(30, 0.05, 0.7),
     grey2: hsl(30, 0.05, 0.55),
     grey3: hsl(30, 0.05, 0.33),
-    grey4: '#333',
+    grey4: hsl(30, 0.05, 0.28),
     primary: 'orange',
     bg: '#fff',
+    textLight: '#fff',
+    textDark: hsl(30, 0.05, 0.28),
   },
   fontSizes: ['0.85rem', '1rem', '2rem', '3rem', '4rem'],
 };

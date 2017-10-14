@@ -4,17 +4,23 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import Container from '../components/Container';
-import Title from '../components/Title';
+import ContactSection from '../components/ContactSection';
 
-const Contact = props => {
-  const siteTitle = this.props.data.site.siteMetadata.title;
-  return (
-    <Container>
-      <Helmet title={siteTitle} />
-      <Title big>Contact</Title>
-    </Container>
-  );
-};
+class Contact extends React.Component {
+  render() {
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    return (
+      <Container maxWidth={'35rem'}>
+        <Helmet title={siteTitle} />
+        <ContactSection
+          label="Get in touch"
+          title="Get in touch"
+          id="contact"
+        />
+      </Container>
+    );
+  }
+}
 
 export default Contact;
 

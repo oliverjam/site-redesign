@@ -10,7 +10,7 @@ class Blog extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const recentPosts = this.props.data.allMarkdownRemark.edges;
     return (
-      <Container>
+      <Container maxWidth="50rem">
         <Helmet title={siteTitle} />
         <PostSection
           label="All posts"

@@ -1,22 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { space, flexDirection } from 'styled-system';
+import { space } from 'styled-system';
 import Link from 'gatsby-link';
 import Title from './Title';
+import Card from './Card';
 import { P } from './Blocks';
 
-const Posts = styled.div`
-  ${space};
-  ${flexDirection};
-  display: flex;
-  max-width: 60rem;
-  background-color: ${p => p.theme.colors.bg};
-  border: 1px solid ${p => p.theme.colors.grey0};
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-`;
-
-const Card = styled.article`
+const Post = styled.article`
   ${space};
   &:first-child {
     margin-top: 0;
@@ -35,7 +25,7 @@ const PostLink = styled(Link)`
   }
   @media (min-width: 40em), (hover: hover) {
     &:hover {
-      background-color: ${p => p.theme.colors.grey0};
+      background-color: ${p => p.theme.colors.bg};
       & h3 {
         color: inherit;
         text-decoration: underline;
@@ -45,11 +35,11 @@ const PostLink = styled(Link)`
 `;
 
 const PostSection = ({ label, title, posts }) => (
-  <section aria-label={label}>
-    {title && <Title size={[3, 4]}>{title}</Title>}
-    <Posts
+  <section aria-label={!title && label}>
+    {title && <Title size={[2, 3]}>{title}</Title>}
+    <Card
+      background="grey0"
       flexDirection={posts.length <= 3 ? ['column', 'column', 'row'] : 'column'}
-      maxWidth={'60rem'}
       mx={'auto'}
     >
       {posts.map(post => {
@@ -57,19 +47,19 @@ const PostSection = ({ label, title, posts }) => (
           const title = post.node.frontmatter.title || post.node.path;
           return (
             <PostLink to={post.node.frontmatter.path}>
-              <Card p={[2, 3]} key={post.node.frontmatter.path}>
+              <Post p={[2, 3]} key={post.node.frontmatter.path}>
                 <h3>{post.node.frontmatter.title}</h3>
                 <small>{post.node.frontmatter.date}</small>
                 <P
                   mt={1}
                   dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
                 />
-              </Card>
+              </Post>
             </PostLink>
           );
         }
       })}
-    </Posts>
+    </Card>
   </section>
 );
 

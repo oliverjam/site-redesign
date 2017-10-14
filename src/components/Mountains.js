@@ -16,8 +16,8 @@ const Mountain = styled.polygon`fill: ${p => p.theme.colors[p.shade]};`;
 
 const Mountains = () => (
   <Wrapper viewBox="0 0 100 100" preserveAspectRatio="xMaxYMin slice">
-    <Mountain points="85 20 100 38 100 100 0 100 0 85" shade="grey1" />
-    <Mountain points="65 15 100 55 100 100 0 100 0 65" shade="grey2" />
+    <Mountain points="85 20 100 38 100 100 0 100 0 85" shade="grey2" />
+    <Mountain points="65 15 100 55 100 100 0 100 0 65" shade="grey1" />
   </Wrapper>
 );
 
