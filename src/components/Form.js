@@ -24,7 +24,7 @@ export const FormRow = styled.div`
 export const InputWrapper = styled.div`
   position: relative;
   width: 100%;
-  ${shadow(1)};
+  ${shadow(1, 2)};
 `;
 
 export const Label = styled.label`
@@ -44,11 +44,10 @@ const inputStyles = css`
   width: 100%;
   padding: 0.5rem;
   font-size: 0.85rem;
-  background-color: ${p => p.theme.colors.grey0};
-  ${'' /* border-bottom: 0.15rem solid ${p => p.theme.colors.grey3}; */} &:focus,
-    &:valid {
+  background-color: ${p => p.theme.colors.grey[0]};
+  &:focus,
+  &:valid {
     & + ${Label} {
-      color: ${p => p.theme.colors.textLight};
       transform: translate(0) scale(1);
     }
   }

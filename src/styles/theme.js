@@ -1,18 +1,25 @@
 import { hsl } from 'polished';
 
+const shades = Array.from({ length: 5 }, (shade, i) =>
+  hsl(30, 0.05, 0.93 - i * 20 / 100)
+);
+
+console.log(shades);
+
+const palette = {
+  orange: 'orange',
+  white: hsl(30, 0.05, 0.98),
+};
+
 export default {
   breakpoints: [40, 60, 70],
   space: [0, '0.5rem', '1rem', '2rem', '4rem', '8rem'],
   colors: {
-    grey0: hsl(30, 0.1, 0.93),
-    grey1: hsl(30, 0.05, 0.7),
-    grey2: hsl(30, 0.05, 0.55),
-    grey3: hsl(30, 0.05, 0.33),
-    grey4: hsl(30, 0.05, 0.28),
-    primary: 'orange',
-    bg: '#fff',
-    textLight: '#fff',
-    textDark: hsl(30, 0.05, 0.28),
+    grey: shades,
+    primary: palette.orange,
+    bg: palette.white,
+    textLight: palette.white,
+    textDark: shades[4],
   },
   fontSizes: ['0.85rem', '1rem', '2rem', '3rem', '4rem'],
 };

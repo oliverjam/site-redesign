@@ -7,7 +7,8 @@ export default styled.button`
   ${space};
   ${width};
   position: relative;
-  background-color: ${p => p.theme.colors.grey0};
+  font-weight: bold;
+  background-color: ${p => p.theme.colors.grey[0]};
   color: ${p => p.theme.colors.textDark};
   transition: background-color 0.2s;
   ${shadow(1)};

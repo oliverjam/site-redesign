@@ -25,7 +25,7 @@ const PostLink = styled(Link)`
   }
   @media (min-width: 40em), (hover: hover) {
     &:hover {
-      background-color: ${p => p.theme.colors.bg};
+      background-color: ${p => p.theme.colors.grey[0]};
       & h3 {
         color: inherit;
         text-decoration: underline;
@@ -38,7 +38,6 @@ const PostSection = ({ label, title, posts }) => (
   <section aria-label={!title && label}>
     {title && <Title size={[2, 3]}>{title}</Title>}
     <Card
-      background="grey0"
       flexDirection={posts.length <= 3 ? ['column', 'column', 'row'] : 'column'}
       mx={'auto'}
     >

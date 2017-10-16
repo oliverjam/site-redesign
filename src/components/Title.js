@@ -6,7 +6,7 @@ import longShadow from '../styles/longShadow';
 const Title = styled.h1`
   ${fontSize};
   color: orange;
-  text-shadow: ${p => longShadow(p.theme.colors.grey3, 20)};
+  text-shadow: ${p => longShadow(p.theme.colors.grey[3], 20)};
 `;
 
 const Wrapper = styled.div`

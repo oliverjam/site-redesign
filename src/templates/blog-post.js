@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 
 const Container = styled.main`
   ${space};
+  margin: 0 auto;
   max-width: 40rem;
   max-width: 60ch;
   background-color: ${p => p.theme.colors.bg};

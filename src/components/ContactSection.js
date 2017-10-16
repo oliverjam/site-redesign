@@ -7,13 +7,7 @@ import Button from './Button';
 export default ({ title, label }) => (
   <section aria-label={!title && label}>
     {title && <Title size={[2, 3]}>{title}</Title>}
-    <Card
-      background="grey2"
-      flexDirection={'column'}
-      mx={'auto'}
-      px={[2, 3]}
-      py={3}
-    >
+    <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
       <Form>
         <FormRow>
           <InputWrapper>

@@ -12,12 +12,12 @@ const Wrapper = styled.svg`
   z-index: -10;
 `;
 
-const Mountain = styled.polygon`fill: ${p => p.theme.colors[p.shade]};`;
+const Mountain = styled.polygon`fill: ${p => p.theme.colors.grey[p.shade]};`;
 
 const Mountains = () => (
   <Wrapper viewBox="0 0 100 100" preserveAspectRatio="xMaxYMin slice">
-    <Mountain points="85 20 100 38 100 100 0 100 0 85" shade="grey2" />
-    <Mountain points="65 15 100 55 100 100 0 100 0 65" shade="grey1" />
+    <Mountain points="85 20 100 38 100 100 0 100 0 85" shade={2} />
+    <Mountain points="65 15 100 55 100 100 0 100 0 65" shade={1} />
   </Wrapper>
 );
 

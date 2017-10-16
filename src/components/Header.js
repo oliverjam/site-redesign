@@ -88,7 +88,7 @@ const NavLink = styled(Link)`
   @media (max-width: 40em) and (hover: hover) {
     &:hover {
       color: inherit;
-      background-color: ${t.colors.grey0};
+      background-color: ${t.colors.grey[0]};
     }
   }
 `;
