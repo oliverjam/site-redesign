@@ -8,9 +8,9 @@ import ContactSection from '../components/ContactSection';
 
 class Contact extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title;
+    const siteTitle = `Contact | ${this.props.data.site.siteMetadata.title}`;
     return (
-      <Container maxWidth={'35rem'}>
+      <Container maxWidth={'60ch'}>
         <Helmet title={siteTitle} />
         <ContactSection
           label="Get in touch"

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fontSize } from 'styled-system';
-import longShadow from '../styles/longShadow';
+import shadow from '../styles/longShadow';
 
 const Title = styled.h1`
   ${fontSize};
   color: orange;
-  text-shadow: ${p => longShadow(p.theme.colors.grey[3], 20)};
+  text-shadow: ${p => shadow(20)};
 `;
 
 const Wrapper = styled.div`

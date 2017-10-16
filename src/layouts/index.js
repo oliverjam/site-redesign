@@ -24,7 +24,7 @@ class Template extends React.Component {
       <ThemeProvider theme={t}>
         <Container pt={[2, 3]} pb={[5, 3]} px={[2, 3]}>
           {pages.includes(location.pathname) && <Mountains />}
-          <Header />
+          <Header current={location.pathname} />
           {children()}
         </Container>
       </ThemeProvider>

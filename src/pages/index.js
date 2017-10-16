@@ -8,8 +8,8 @@ import PostSection from '../components/PostSection';
 
 class BlogIndex extends React.Component {
   render() {
-    console.log(this.props.data);
-    const siteTitle = this.props.data.site.siteMetadata.title;
+    const siteTitle = `${this.props.data.site.siteMetadata
+      .title} | Frontend Dev`;
     const recentPosts = this.props.data.allMarkdownRemark.edges.slice(0, 3);
     return (
       <Container>
@@ -17,7 +17,12 @@ class BlogIndex extends React.Component {
         <Title size={[3, 4]} big>
           I'm a frontend developer in London.
         </Title>
-        <PostSection label="Recent Posts" posts={recentPosts} id="posts" />
+        <PostSection
+          label="Recent Posts"
+          direction={['column', 'row']}
+          posts={recentPosts}
+          id="posts"
+        />
       </Container>
     );
   }
@@ -32,7 +37,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           excerpt

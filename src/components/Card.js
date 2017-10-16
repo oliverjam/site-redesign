@@ -8,7 +8,7 @@ export default styled.div`
   position: relative;
   display: flex;
   background-color: ${p => p.theme.colors[p.background] || p.theme.colors.bg};
-  border: 1px solid ${p => p.theme.colors.grey[1]};
+  border: 1px solid ${p => p.theme.colors.grey[0]};
   border-radius: 2px;
   ${shadow(2)};
 `;

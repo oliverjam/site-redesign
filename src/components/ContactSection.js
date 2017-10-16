@@ -6,7 +6,7 @@ import Button from './Button';
 
 export default ({ title, label }) => (
   <section aria-label={!title && label}>
-    {title && <Title size={[2, 3]}>{title}</Title>}
+    {title && <Title size={[3, 4]}>{title}</Title>}
     <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
       <Form>
         <FormRow>

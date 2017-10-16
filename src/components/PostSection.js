@@ -34,18 +34,15 @@ const PostLink = styled(Link)`
   }
 `;
 
-const PostSection = ({ label, title, posts }) => (
+const PostSection = ({ label, title, direction, posts }) => (
   <section aria-label={!title && label}>
-    {title && <Title size={[2, 3]}>{title}</Title>}
-    <Card
-      flexDirection={posts.length <= 3 ? ['column', 'column', 'row'] : 'column'}
-      mx={'auto'}
-    >
-      {posts.map(post => {
+    {title && <Title size={[3, 4]}>{title}</Title>}
+    <Card flexDirection={direction} mx={'auto'}>
+      {posts.map((post, i) => {
         if (post.node.path !== '/404/') {
           const title = post.node.frontmatter.title || post.node.path;
           return (
-            <PostLink to={post.node.frontmatter.path}>
+            <PostLink key={i} to={post.node.frontmatter.path}>
               <Post p={[2, 3]} key={post.node.frontmatter.path}>
                 <h3>{post.node.frontmatter.title}</h3>
                 <small>{post.node.frontmatter.date}</small>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { space, width } from 'styled-system';
-import longShadow from '../styles/longShadow';
 import shadow from '../styles/shadow';
 
 export default styled.button`

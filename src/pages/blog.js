@@ -7,14 +7,15 @@ import PostSection from '../components/PostSection';
 
 class Blog extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title;
+    const siteTitle = `Blog | ${this.props.data.site.siteMetadata.title}`;
     const recentPosts = this.props.data.allMarkdownRemark.edges;
     return (
-      <Container maxWidth="50rem">
+      <Container maxWidth="60ch">
         <Helmet title={siteTitle} />
         <PostSection
           label="All posts"
           title="Blog"
+          direction="column"
           posts={recentPosts}
           id="posts"
         />
@@ -32,7 +33,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           excerpt

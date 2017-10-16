@@ -4,8 +4,6 @@ const shades = Array.from({ length: 5 }, (shade, i) =>
   hsl(30, 0.05, 0.93 - i * 20 / 100)
 );
 
-console.log(shades);
-
 const palette = {
   orange: 'orange',
   white: hsl(30, 0.05, 0.98),

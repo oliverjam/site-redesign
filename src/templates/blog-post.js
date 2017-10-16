@@ -2,15 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 import Helmet from 'react-helmet';
+import Container from '../components/Container';
 
-const Container = styled.main`
-  ${space};
-  margin: 0 auto;
-  max-width: 40rem;
-  max-width: 60ch;
-  background-color: ${p => p.theme.colors.bg};
-  border-radius: 2px;
-`;
+const Main = Container.withComponent('main');
 
 const Header = styled.header`
   & > h1 {
@@ -54,18 +48,17 @@ const Markdown = styled.div`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props);
     const post = this.props.data.markdownRemark;
     const { title: siteTitle } = this.props.data.site.siteMetadata;
     return (
-      <Container mt={[2, 3]} p={0}>
+      <Main maxWidth={'60ch'} mt={[2, 3]} p={0}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>
           <Date>{post.frontmatter.date}</Date>
         </Header>
         <Markdown dangerouslySetInnerHTML={{ __html: post.html }} />
-      </Container>
+      </Main>
     );
   }
 }
