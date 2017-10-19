@@ -34,9 +34,9 @@ const PostLink = styled(Link)`
   }
 `;
 
-const PostSection = ({ label, title, direction, posts }) => (
+const BlogSection = ({ label, title, direction, posts }) => (
   <section aria-label={!title && label}>
-    {title && <Title size={[3, 4]}>{title}</Title>}
+    {title && <Title>{title}</Title>}
     <Card flexDirection={direction} mx={'auto'}>
       {posts.map((post, i) => {
         if (post.node.path !== '/404/') {
@@ -59,4 +59,4 @@ const PostSection = ({ label, title, direction, posts }) => (
   </section>
 );
 
-export default PostSection;
+export default BlogSection;

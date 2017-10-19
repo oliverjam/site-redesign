@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
-import Icon from './icon';
+import Icon from './Icon';
 import t from '../styles/theme';
 import { tada } from '../styles/animation';
 import shadow from '../styles/shadow';
@@ -44,16 +44,16 @@ const Logo = styled.svg`
 
 const Nav = styled.nav`
   position: fixed;
-  left: ${t.space[4]};
+  ${'' /* left: ${t.space[4]};
   right: ${t.space[4]};
-  bottom: ${t.space[2]};
-  height: 3rem;
+  bottom: ${t.space[2]}; */} left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.25rem;
   display: flex;
-  background-color: ${t.colors.bg};
-  border: 1px solid ${t.colors.grey[0]};
-  border-radius: 2px;
+  background-color: ${t.colors.grey[0]};
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
   z-index: 999;
-  ${shadow(1)};
   @media (min-width: 40em) {
     position: initial;
     margin-left: 2rem;
@@ -79,12 +79,16 @@ const Li = styled.li`
 
 const NavLink = styled(Link)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  font-size: ${t.fontSizes[0]};
   text-transform: capitalize;
   text-decoration: none;
-  transition: background-color 0.2s;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  transition: border-color 0.2s;
   @media (min-width: 40em) {
     border-bottom: 4px solid transparent;
     ${p => p.current && css`border-bottom-color: ${t.colors.grey[3]};`};
@@ -93,14 +97,14 @@ const NavLink = styled(Link)`
       border-bottom-color: ${t.colors.primary};
     }
   }
-  @media (max-width: 40em) {
-    ${p => p.current && css`background-color: ${t.colors.grey[0]};`};
-  }
   @media (max-width: 40em) and (hover: hover) {
     &:hover {
       color: inherit;
-      background-color: ${t.colors.primary};
+      ${p => !p.current && css`border-bottom-color: ${t.colors.primary};`};
     }
+  }
+  @media (max-width: 40em) {
+    ${p => p.current && css`border-bottom-color: ${t.colors.grey[1]};`};
   }
 `;
 
@@ -112,8 +116,7 @@ const IconLink = styled.a`
 `;
 
 const NavIcon = styled(Icon).attrs({
-  size: 1.25,
-  direction: 'right',
+  size: 1,
 })`
   @media (min-width: 40em) {
     display: none;
@@ -139,7 +142,7 @@ const navLinks = current => {
     <Li key={i} mr={[0, 2, 3]}>
       <NavLink to={page.path} current={page.path === current}>
         <NavIcon name={page.icon} />
-        {page.path.replace('/', '')}
+        <span>{page.path.replace('/', '')}</span>
       </NavLink>
     </Li>
   ));

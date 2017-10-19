@@ -63,8 +63,5 @@ injectGlobal`
     color: inherit;
     background: none;
     border: none;
-    &:invalid {
-      box-shadow: none;
-    }
   }
 `;

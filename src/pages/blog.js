@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
 import Container from '../components/Container';
-import PostSection from '../components/PostSection';
+import BlogSection from '../components/BlogSection';
 
 class Blog extends React.Component {
   render() {
@@ -12,7 +12,7 @@ class Blog extends React.Component {
     return (
       <Container maxWidth="60ch">
         <Helmet title={siteTitle} />
-        <PostSection
+        <BlogSection
           label="All posts"
           title="Blog"
           direction="column"

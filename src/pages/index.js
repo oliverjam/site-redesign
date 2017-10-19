@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import Container from '../components/Container';
 import Title from '../components/Title';
-import PostSection from '../components/PostSection';
+import BlogSection from '../components/BlogSection';
 
 class BlogIndex extends React.Component {
   render() {
@@ -14,12 +14,10 @@ class BlogIndex extends React.Component {
     return (
       <Container>
         <Helmet title={siteTitle} />
-        <Title size={[3, 4]} big>
-          I'm a frontend developer in London.
-        </Title>
-        <PostSection
+        <Title big>I'm a frontend developer in London.</Title>
+        <BlogSection
           label="Recent Posts"
-          direction={['column', 'row']}
+          direction={['column', 'column', 'row']}
           posts={recentPosts}
           id="posts"
         />

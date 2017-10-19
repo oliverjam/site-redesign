@@ -1,7 +1,7 @@
 import { hsl } from 'polished';
 
 const shades = Array.from({ length: 5 }, (shade, i) =>
-  hsl(30, 0.05, 0.93 - i * 20 / 100)
+  hsl(30, 0.05, 0.95 - i * 20 / 100)
 );
 
 const palette = {
@@ -19,5 +19,5 @@ export default {
     textLight: palette.white,
     textDark: shades[4],
   },
-  fontSizes: ['0.85rem', '1rem', '2rem', '3rem', '4rem'],
+  fontSizes: ['0.8125rem', '1rem', '2rem', '3rem', '4rem'],
 };

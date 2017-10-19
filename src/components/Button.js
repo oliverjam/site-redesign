@@ -6,12 +6,20 @@ export default styled.button`
   ${space};
   ${width};
   position: relative;
-  font-weight: bold;
-  background-color: ${p => p.theme.colors.grey[0]};
-  color: ${p => p.theme.colors.textDark};
-  transition: background-color 0.2s;
-  ${shadow(1)};
+  font-weight: 600;
+  background-color: ${p => p.theme.colors.grey[2]};
+  color: ${p => p.theme.colors.textLight};
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.2s, color 0.2s;
   &:hover {
+    color: ${p => p.theme.colors.textDark};
     background-color: ${p => p.theme.colors.primary};
+  }
+  &:focus {
+    outline: none;
+    ${shadow(1)};
+  }
+  &::-moz-focus-inner {
+    border: 0;
   }
 `;
