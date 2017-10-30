@@ -2,10 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
+import Nav from './Nav';
+import SocialNav from './SocialNav';
 import Icon from './Icon';
 import t from '../styles/theme';
 import { tada } from '../styles/animation';
-import shadow from '../styles/shadow';
 
 const Wrapper = styled.header`
   display: flex;
@@ -42,112 +43,6 @@ const Logo = styled.svg`
   stroke: currentcolor;
 `;
 
-const Nav = styled.nav`
-  position: fixed;
-  ${'' /* left: ${t.space[4]};
-  right: ${t.space[4]};
-  bottom: ${t.space[2]}; */} left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3.25rem;
-  display: flex;
-  background-color: ${t.colors.grey[0]};
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
-  z-index: 999;
-  @media (min-width: 40em) {
-    position: initial;
-    margin-left: 2rem;
-    height: auto;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-  }
-`;
-
-const Social = styled.nav`${space};`;
-
-const List = styled.ul`
-  display: flex;
-  flex: 1;
-  padding: 0;
-`;
-
-const Li = styled.li`
-  ${space};
-  flex: 1;
-`;
-
-const NavLink = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-size: ${t.fontSizes[0]};
-  text-transform: capitalize;
-  text-decoration: none;
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid transparent;
-  transition: border-color 0.2s;
-  @media (min-width: 40em) {
-    border-bottom: 4px solid transparent;
-    ${p => p.current && css`border-bottom-color: ${t.colors.grey[3]};`};
-    &:hover {
-      color: inherit;
-      border-bottom-color: ${t.colors.primary};
-    }
-  }
-  @media (max-width: 40em) and (hover: hover) {
-    &:hover {
-      color: inherit;
-      ${p => !p.current && css`border-bottom-color: ${t.colors.primary};`};
-    }
-  }
-  @media (max-width: 40em) {
-    ${p => p.current && css`border-bottom-color: ${t.colors.grey[1]};`};
-  }
-`;
-
-const IconLink = styled.a`
-  display: block;
-  &:hover {
-    color: ${t.colors.primary};
-  }
-`;
-
-const NavIcon = styled(Icon).attrs({
-  size: 1,
-})`
-  @media (min-width: 40em) {
-    display: none;
-  }
-`;
-
-const navLinks = current => {
-  const pages = [
-    {
-      path: '/about',
-      icon: 'person',
-    },
-    {
-      path: '/blog',
-      icon: 'book',
-    },
-    {
-      path: '/contact',
-      icon: 'phone',
-    },
-  ];
-  return pages.map((page, i) => (
-    <Li key={i} mr={[0, 2, 3]}>
-      <NavLink to={page.path} current={page.path === current}>
-        <NavIcon name={page.icon} />
-        <span>{page.path.replace('/', '')}</span>
-      </NavLink>
-    </Li>
-  ));
-};
-
 export default ({ current }) => {
   return (
     <Wrapper>
@@ -171,34 +66,8 @@ export default ({ current }) => {
           {/* <circle cx="16" cy="19" r="5" /> */}
         </Logo>
       </LogoLink>
-      <Nav>
-        <List>{navLinks(current)}</List>
-      </Nav>
-      <Social ml={'auto'}>
-        <List>
-          <Li ml={2}>
-            <IconLink
-              href="https://twitter.com/_oliverjam"
-              aria-label="Twitter"
-            >
-              <Icon name="twitter" fill />
-            </IconLink>
-          </Li>
-          <Li ml={2}>
-            <IconLink href="https://github.com/oliverjam" aria-label="Github">
-              <Icon name="github" fill />
-            </IconLink>
-          </Li>
-          <Li ml={2}>
-            <IconLink
-              href="https://linkedin.com/oliverjam"
-              aria-label="Codepen"
-            >
-              <Icon name="codepen" />
-            </IconLink>
-          </Li>
-        </List>
-      </Social>
+      <Nav current={current} />
+      <SocialNav />
     </Wrapper>
   );
 };

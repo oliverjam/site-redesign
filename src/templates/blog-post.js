@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 import Helmet from 'react-helmet';
 import Container from '../components/Container';
+import markdownStyles from '../styles/markdown';
 
 const Main = Container.withComponent('main');
 
@@ -19,31 +20,10 @@ const Header = styled.header`
 const Date = styled.small`font-size: 0.85rem;`;
 
 const Markdown = styled.div`
-  font-family: georgia, serif;
+  font-family: Georgia, georgia, serif;
   font-size: 1.125em;
   margin-top: 1em;
-  & > * + * {
-    margin-top: 1em;
-  }
-  & h2,
-  & h3,
-  & h4,
-  & h5 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol';
-  }
-  & h1 {
-  }
-  & blockquote {
-    font-style: italic;
-    padding-left: ${p => p.theme.space[2]};
-    border-left: 0.5em solid ${p => p.theme.colors.primary};
-  }
-  & cite {
-    font-style: normal;
-    font-size: 0.85em;
-  }
+  ${markdownStyles};
 `;
 
 class BlogPostTemplate extends React.Component {

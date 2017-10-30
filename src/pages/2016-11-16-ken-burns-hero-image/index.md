@@ -11,7 +11,7 @@ published: true
 
 The first iteration of this hero area featured several looping videos, but we quickly ran into performance issues. There was no way to get multiple videos at a high enough quality to do justice to Lick's work without forcing users to download unfeasibly large files. We also struggled to provide a good user experience for mobile browsers that either refused to autoplay video or forced the video to display inline.
 
-I suggested we instead try using still images with a [Ken Burns] style pan and zoom animation using CSS. Using optimised jpegs allowed file sizes to stay manageable and CSS3 transforms gave a nice sense of motion without stressing the browser too much. As a bonus this even worked perfectly on mobile.
+I suggested we instead try using still images with a [Ken Burns] style pan and zoom animation using <abbr title="cascading style sheets">css</abbr>. Using optimised jpegs allowed file sizes to stay manageable and <abbr>CSS</abbr> transforms gave a nice sense of motion without stressing the browser too much. As a bonus this even worked perfectly on mobile.
 
 We deliberately chose stock imagery as we found that showing actual work on the frontpage of the previous site needed updating constantly to stop the page from looking stale. Using high quality stock imagery that subtly referred to some of Lick's clients (grass for Spurs, paint for Wilko etc).
 
@@ -31,7 +31,7 @@ We need a full viewport container with some images.
 </div>
 ```
 
-The `js-hero` ID will be used to target the container later. The `js-animating` class will be used to apply the CSS animations. The first image starts with this class applied to ensure it animates as soon as it loads, without waiting for the javascript to download and execute. This also provides a graceful degradation for users without javascript — they still see a single image animate.
+The `js-hero` <abbr title="identifier">ID</abbr> will be used to target the container later. The `js-animating` class will be used to apply the <abbr>CSS</abbr> animations. The first image starts with this class applied to ensure it animates as soon as it loads, without waiting for the javascript to download and execute. This also provides a graceful degradation for users without JavaScript — they still see a single image animate.
 
 ### CSS
 
@@ -65,9 +65,9 @@ The container is set to be at least as tall as the viewport (with a fallback for
 
 The images are positioned absolutely within the container with a minimum width and height of 100%, ensuring they fill the container at any aspect ratio. This means the image will crop when the window is resized, so consider using the [picture element] to specify different image files at different window widths.
 
-Each image has a different corner set as its transform-origin. This is so we can apply the same CSS animation later on but have each image look as if it's moving in a different direction.
+Each image has a different corner set as its transform-origin. This is so we can apply the same <abbr>CSS</abbr> animation later on but have each image look as if it's moving in a different direction.
 
-We also set the opacity to 0, allowing our animation to fade the pictures in, and we tell the browser to expect these elements to change opacity and transform (using the new [will-change] property). This can help with performance and is an official version of the old transform3d hack to force GPU rendering.
+We also set the opacity to 0, allowing our animation to fade the pictures in, and we tell the browser to expect these elements to change opacity and transform (using the new [will-change] property). This can help with performance and is an official version of the old transform3d hack to force <abbr title="graphics processing unit">GPU</abbr> rendering.
 
 ### Animation
 

@@ -11,11 +11,6 @@ export const Section = styled.section`
   ${space};
 `;
 
-export const List = styled.ul`
-  ${width};
-  ${space};
-`;
-
 export const Li = styled.li`
   ${width};
   ${space};

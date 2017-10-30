@@ -44,11 +44,6 @@ injectGlobal`
     }
   }
 
-  ul,
-  ol {
-    padding-left: 1em;
-  }
-
   ul {
     list-style: none;
   }

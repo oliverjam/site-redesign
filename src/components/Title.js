@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   min-height: ${p => (p.big ? '33vh' : 'auto')};
   margin-top: ${p => (p.big ? p.theme.space[2] : p.theme.space[3])};
   margin-bottom: ${p => (p.big ? p.theme.space[2] : p.theme.space[3])};
+  @media screen and (min-width: 40em) {
+    margin-top: ${p => (p.big ? p.theme.space[3] : p.theme.space[4])};
+    margin-bottom: ${p => (p.big ? p.theme.space[3] : p.theme.space[4])};
+  }
 `;
 
 export default ({ id, big, size, children }) => (

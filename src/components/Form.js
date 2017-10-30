@@ -29,8 +29,8 @@ export const InputWrapper = styled.div`
 
 export const Label = styled.label`
   position: absolute;
-  left: 0.5rem;
-  top: 0.6rem;
+  left: 1rem;
+  top: 1rem;
   font-size: ${p => p.theme.fontSizes[0]};
   font-weight: bold;
   line-height: 1;
@@ -42,15 +42,19 @@ export const Label = styled.label`
 
 const inputStyles = css`
   width: 100%;
-  height: 2rem;
-  padding: 0.5rem;
+  height: 2.75rem;
+  padding: 1rem;
   font-size: 0.85rem;
   background-color: ${p => p.theme.colors.grey[0]};
+  border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  @media screen and (min-width: 40em) {
+    border-radius: 4px;
+  }
   &:focus,
   &:valid {
     & + ${Label} {
-      transform: translate(-0.5rem, -200%) scale(0.8);
+      transform: translate(-1rem, -250%) scale(0.9);
     }
   }
   &:valid {

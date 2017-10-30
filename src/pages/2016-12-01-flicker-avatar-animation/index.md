@@ -12,9 +12,9 @@ I just added a flickering faux-motion effect avatar to [my About page]. The tech
 
 ## Animation
 
-There are a few different ways to achieve this effect — the Primitive pencil example uses Javascript to repeatedly switch each image from `display: none` to `display: block` in order. I felt like this would be a perfect case to experiment with CSS sprite animation.
+There are a few different ways to achieve this effect — the Primitive pencil example uses JavaScript to repeatedly switch each image from `display: none` to `display: block` in order. I felt like this would be a perfect case to experiment with <abbr title="cascading style sheets">CSS</abbr> sprite animation.
 
-Sprite animation is similar to a flipbook: you create a 'sprite' (a long image containing each frame of your animation) and then use CSS keyframes to animate along this image.
+Sprite animation is similar to a flipbook: you create a 'sprite' (a long image containing each frame of your animation) and then use <abbr>CSS</abbr> keyframes to animate along this image.
 
 The tricks to get it working are putting the sprite in a container the size of a single frame (so only one frame is visible at a time), and using `steps()` as your `animation-timing-function`.
 
@@ -32,7 +32,7 @@ We want the animation to jump from frame to frame, giving the illusion of animat
 
 ## The sprite
 
-I generated three different versions of the same image using the [Javascript fork of Primitive] and then stitched them together in Preview. This in itself was a bit of a hassle as you can't change the canvas size without also resizing the image. You need to select all, cut the image, adjust image size to 300% width, then re-paste the first image and move to the left edge. You can then cut and paste the next two images alongside the first to fill the remaining space.
+I generated three different versions of the same image using the [JavaScript fork of Primitive] and then stitched them together in Preview. This in itself was a bit of a hassle as you can't change the canvas size without also resizing the image. You need to select all, cut the image, adjust image size to 300% width, then re-paste the first image and move to the left edge. You can then cut and paste the next two images alongside the first to fill the remaining space.
 
 ## The code
 
@@ -68,7 +68,7 @@ We then need to animate the image within the container. The below code will move
 
 I wanted my avatar to be circular rather than square, so I put `border-radius: 50%` on the containing `div`. This was fine until I added the animation, which apparently triggered a [long-standing bug in Chrome] causing animated children to overflow their containers (something to do with Chrome promoting the animated element to a new layer for performance).
 
-You can solve this by also promoting the parent element to a new layer with `transform: translate3D(0, 0, 0)`. So the final CSS looks like this:
+You can solve this by also promoting the parent element to a new layer with `transform: translate3D(0, 0, 0)`. So the final <abbr>CSS</abbr> looks like this:
 
 ```CSS
 .sprite {
