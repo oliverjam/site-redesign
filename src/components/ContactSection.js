@@ -108,7 +108,12 @@ const withForm = withStateHandlers(
   }),
   {
     handleChange: state => e => ({ [e.target.name]: e.target.value }),
-    setEmpty: state => () => ({ name: '', email: '', body: '' }),
+    setEmpty: state => () => ({
+      name: '',
+      email: '',
+      body: '',
+      loading: false,
+    }),
     setLoading: ({ loading }) => () => ({ loading: true }),
   }
 );
