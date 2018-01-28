@@ -4,6 +4,7 @@ import { space } from 'styled-system';
 import Helmet from 'react-helmet';
 import Container from '../components/Container';
 import markdownStyles from '../styles/markdown';
+import syntaxHighlighting from '../styles/prism-duotone-light.js';
 
 const Main = Container.withComponent('main');
 
@@ -24,6 +25,7 @@ const Markdown = styled.div`
   font-size: 1.125em;
   margin-top: 1em;
   ${markdownStyles};
+  ${syntaxHighlighting};
 `;
 
 class BlogPostTemplate extends React.Component {

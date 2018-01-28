@@ -4,7 +4,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import { space } from 'styled-system';
 import t from '../styles/theme';
 import '../styles/global';
-import '../styles/prism-duotone-light.css';
 
 import Mountains from '../components/Mountains';
 import Header from '../components/Header';
