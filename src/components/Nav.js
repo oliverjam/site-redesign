@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 import Link from 'gatsby-link';
-import Icon from './Icon';
+import Icon from './icon';
 import t from '../styles/theme';
 
 const Nav = styled.nav`

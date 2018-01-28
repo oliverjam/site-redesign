@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
-import Icon from './Icon';
+import Icon from './icon';
 import t from '../styles/theme';
 
 const Social = styled.nav`${space};`;

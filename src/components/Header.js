@@ -4,7 +4,7 @@ import { space } from 'styled-system';
 import Link from 'gatsby-link';
 import Nav from './Nav';
 import SocialNav from './SocialNav';
-import Icon from './Icon';
+import Icon from './icon';
 import t from '../styles/theme';
 import { tada } from '../styles/animation';
 
