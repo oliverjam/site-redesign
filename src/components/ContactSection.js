@@ -87,7 +87,7 @@ const submitData = (e, name, email, body) => {
     replyTo: email,
     body: body,
   };
-  return fetch('https://micro-mailer.now.sh', {
+  return fetch('https://micro-mailer.now.sh/oliver', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
