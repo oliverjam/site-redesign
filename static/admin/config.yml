@@ -1,0 +1,15 @@
+backend:
+  name: test-repo
+
+media_folder: static/assets
+
+collections:
+  - name: blog
+    label: Blog
+    folder: pages
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
