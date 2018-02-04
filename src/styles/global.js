@@ -25,6 +25,8 @@ injectGlobal`
     color: ${t.colors.textLight};
     background-color: ${t.colors.bgDark};
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,

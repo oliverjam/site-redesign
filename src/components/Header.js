@@ -40,7 +40,7 @@ const LogoLink = styled(Link)`
 const Logo = styled.svg`
   width: 2rem;
   height: 2rem;
-  stroke: currentcolor;
+  stroke: ${t.colors.grey[3]};
 `;
 
 export default ({ current }) => {
