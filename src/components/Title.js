@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fontSize } from 'styled-system';
+import t from '../styles/theme';
 import shadow from '../styles/longShadow';
 
 const Title = styled.h1`
   ${fontSize};
   font-size: ${p => (p.big ? p.theme.fontSizes[3] : p.theme.fontSizes[2])};
-  color: orange;
+  color: ${t.colors.textLight};
   text-shadow: ${p => shadow(20)};
   @media (min-width: 40em) {
     font-size: ${p => (p.big ? p.theme.fontSizes[4] : p.theme.fontSizes[3])};

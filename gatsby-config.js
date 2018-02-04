@@ -50,7 +50,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    // `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-purify-css`,
   ],

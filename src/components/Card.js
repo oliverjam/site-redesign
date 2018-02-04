@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { space, flexDirection } from 'styled-system';
+import t from '../styles/theme';
 import shadow from '../styles/shadow';
 
 export default styled.div`
@@ -7,6 +8,7 @@ export default styled.div`
   ${flexDirection};
   position: relative;
   display: flex;
+  color: ${t.colors.textDark};
   background-color: ${p => p.theme.colors[p.background] || p.theme.colors.bg};
   border: 1px solid ${p => p.theme.colors.grey[0]};
   border-radius: 6px;

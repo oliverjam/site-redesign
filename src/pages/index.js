@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import Container from '../components/Container';
 import Title from '../components/Title';
 import BlogSection from '../components/BlogSection';
+import t from '../styles/theme';
 
 class BlogIndex extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class BlogIndex extends React.Component {
     return (
       <Container>
         <Helmet title={siteTitle} />
-        <Title big>I'm a frontend developer in London.</Title>
+        <Title big>I'm a <span style={{ color: t.colors.primary }}>frontend developer</span> in London.</Title>
         <BlogSection
           label="Recent Posts"
           direction={['column', 'column', 'row']}

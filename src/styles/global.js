@@ -22,8 +22,8 @@ injectGlobal`
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: ${t.colors.textDark};
-    background-color: ${t.colors.bg};
+    color: ${t.colors.textLight};
+    background-color: ${t.colors.bgDark};
     line-height: 1.5;
   }
 

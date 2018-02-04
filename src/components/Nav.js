@@ -12,7 +12,7 @@ const Nav = styled.nav`
   bottom: 0;
   height: 3.25rem;
   display: flex;
-  background-color: ${t.colors.grey[0]};
+  background-color: ${t.colors.bgDark};
   box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
   z-index: 999;
   @media (min-width: 40em) {
@@ -50,7 +50,7 @@ const NavLink = styled(Link)`
   transition: border-color 0.2s;
   @media (min-width: 40em) {
     border-bottom: 4px solid transparent;
-    ${p => p.current && css`border-bottom-color: ${t.colors.grey[3]};`};
+    ${p => p.current && css`border-bottom-color: ${t.colors.grey[1]};`};
     &:hover {
       color: inherit;
       border-bottom-color: ${t.colors.primary};

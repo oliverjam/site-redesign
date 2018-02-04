@@ -24,6 +24,7 @@ export default {
     grey: shades,
     primary: palette.orange,
     bg: palette.white,
+    bgDark: shades[4],
     textLight: palette.white,
     textDark: shades[4],
   },
