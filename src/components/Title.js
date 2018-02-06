@@ -25,8 +25,8 @@ const Wrapper = styled.div`
   margin-bottom: ${p => (p.big ? p.theme.space[2] : p.theme.space[3])};
   text-shadow: 1px 1px 1px ${t.colors.grey[3]};
   @media screen and (min-width: 40em) {
-    margin-top: ${p => (p.big ? p.theme.space[3] : p.theme.space[4])};
-    margin-bottom: ${p => (p.big ? p.theme.space[3] : p.theme.space[4])};
+    margin-top: ${t.space[3]};
+    margin-bottom: ${t.space[3]};
   }
 `;
 

@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Container from '../components/Container';
 import BlogSection from '../components/BlogSection';
 
-class Blog extends React.Component {
+class Writing extends React.Component {
   render() {
     const siteTitle = `Blog | ${this.props.data.site.siteMetadata.title}`;
     const recentPosts = this.props.data.allMarkdownRemark.edges;
@@ -14,7 +14,7 @@ class Blog extends React.Component {
         <Helmet title={siteTitle} />
         <BlogSection
           label="All posts"
-          title="Blog"
+          title="Writing"
           direction="column"
           posts={recentPosts}
           id="posts"
@@ -24,10 +24,10 @@ class Blog extends React.Component {
   }
 }
 
-export default Blog;
+export default Writing;
 
 export const pageQuery = graphql`
-  query BlogQuery {
+  query WritingQuery {
     site {
       siteMetadata {
         title

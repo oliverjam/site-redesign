@@ -83,7 +83,7 @@ const navLinks = current => {
       icon: 'person',
     },
     {
-      path: '/blog',
+      path: '/writing',
       icon: 'book',
     },
     {
