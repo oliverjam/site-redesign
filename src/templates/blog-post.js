@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import Container from '../components/Container';
 import markdownStyles from '../styles/markdown';
 import syntaxHighlighting from '../styles/prism-duotone-light.js';
+import t from '../styles/theme';
 
 const Main = Container.withComponent('main');
 
@@ -15,10 +16,16 @@ const Header = styled.header`
     @media (min-width: 40em) {
       font-size: 3rem;
     }
+    &::after {
+      content: '.';
+      color: ${t.colors.primary};
+    }
   }
 `;
 
-const Date = styled.small`font-size: 0.85rem;`;
+const Date = styled.small`
+  font-size: 0.85rem;
+`;
 
 const Markdown = styled.div`
   font-family: Georgia, georgia, serif;

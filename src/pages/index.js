@@ -15,7 +15,7 @@ class BlogIndex extends React.Component {
     return (
       <Container>
         <Helmet title={siteTitle} />
-        <Title big>I'm a <span style={{ color: t.colors.primary }}>frontend developer</span> in London.</Title>
+        <Title big>I'm a <span style={{ color: t.colors.primary }}>frontend developer</span> in London</Title>
         <BlogSection
           label="Recent Posts"
           direction={['column', 'column', 'row']}

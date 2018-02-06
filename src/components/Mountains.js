@@ -5,7 +5,7 @@ import t from '../styles/theme';
 
 const Wrapper = styled.svg`
   position: absolute;
-  top: 0;
+  top: 2rem;
   left: 0;
   width: 100%;
   height: 100%;

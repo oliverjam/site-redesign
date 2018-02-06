@@ -12,12 +12,13 @@ const Nav = styled.nav`
   bottom: 0;
   height: 3.25rem;
   display: flex;
+  font-weight: bold;
   background-color: ${t.colors.bgDark};
   box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
   z-index: 999;
   @media (min-width: 40em) {
     position: initial;
-    margin-left: 1.5rem;
+    margin-left: 2rem;
     height: auto;
     border: none;
     box-shadow: none;
