@@ -23,7 +23,6 @@ const Contact = ({ title, label }) => (
         <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
           <Form
             name="contact"
-            data-netlify="true"
             onSubmit={e => {
               e.preventDefault();
               setState({ loading: true });
@@ -98,7 +97,7 @@ const submitData = (e, name, email, body) => {
     'form-name': 'contact',
     name,
     body,
-    replyTo: email,
+    email,
   });
   return fetch('/', {
     method: 'POST',
