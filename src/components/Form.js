@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import shadow from '../styles/shadow';
 
 export const Form = styled.form`
   z-index: 0;

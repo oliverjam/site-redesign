@@ -1,121 +1,110 @@
 import React from 'react';
 import fetch from 'unfetch';
-import { withStateHandlers } from 'recompose';
+import Component from 'react-component-component';
 
 import Title from './Title';
 import Card from './Card';
 import { Form, FormRow, InputWrapper, Label, Input, TextArea } from './Form';
 import Button from './Button';
 
-const ContactSection = ({
-  title,
-  label,
-  name,
-  email,
-  body,
-  loading,
-  handleChange,
-  setLoading,
-  setEmpty,
-}) => (
-    <section aria-label={!title && label}>
-      {title && <Title>{title}</Title>}
-      <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
-        <Form
-          onSubmit={e => {
-            e.preventDefault();
-            setLoading();
-            submitData(e, name, email, body).then(response => {
-              console.log(response);
-              setEmpty();
-            });
-          }}
-        >
-          <FormRow>
-            <InputWrapper>
-              <Input
-                name="name"
-                id="name"
-                type="text"
-                required
-                value={name}
-                onChange={e => handleChange(e)}
-              />
-              <Label for="name">Name</Label>
-            </InputWrapper>
-            <InputWrapper>
-              <Input
-                name="email"
-                id="email"
-                type="text"
-                required
-                value={email}
-                onChange={e => handleChange(e)}
-              />
-              <Label for="email">Email</Label>
-            </InputWrapper>
-          </FormRow>
-          <InputWrapper>
-            <TextArea
-              name="body"
-              id="body"
-              rows="5"
-              required
-              value={body}
-              onChange={e => handleChange(e)}
-            />
-            <Label for="body">Your message</Label>
-          </InputWrapper>
-          <Button
-            width={[1, 'auto']}
-            ml={[0, 'auto']}
-            px={2}
-            py={1}
-            type="submit"
+const initialState = {
+  name: '',
+  email: '',
+  body: '',
+  loading: false,
+};
+
+const Contact = ({ title, label }) => (
+  <Component
+    initialState={initialState}
+    render={({ state: { name, email, body, loading }, setState }) => (
+      <section aria-label={!title && label}>
+        {title && <Title>{title}</Title>}
+        <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
+          <Form
+            onSubmit={e => {
+              e.preventDefault();
+              setState({ loading: true });
+              submitData(e, name, email, body)
+                .then(() => {
+                  setState(initialState);
+                })
+                .catch(err => console.error(err));
+            }}
           >
-            {loading ? 'Loading' : 'Submit'}
-          </Button>
-        </Form>
-      </Card>
-    </section>
-  );
+            <FormRow>
+              <InputWrapper>
+                <Input
+                  name="name"
+                  id="name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={onChange(setState)}
+                />
+                <Label for="name">Name</Label>
+              </InputWrapper>
+              <InputWrapper>
+                <Input
+                  name="email"
+                  id="email"
+                  type="text"
+                  required
+                  value={email}
+                  onChange={onChange(setState)}
+                />
+                <Label for="email">Email</Label>
+              </InputWrapper>
+            </FormRow>
+            <InputWrapper>
+              <TextArea
+                name="body"
+                id="body"
+                rows="5"
+                required
+                value={body}
+                onChange={onChange(setState)}
+              />
+              <Label for="body">Your message</Label>
+            </InputWrapper>
+            <Button
+              width={[1, 'auto']}
+              ml={[0, 'auto']}
+              px={2}
+              py={1}
+              type="submit"
+            >
+              {loading ? 'Loading' : 'Submit'}
+            </Button>
+          </Form>
+        </Card>
+      </section>
+    )}
+  />
+);
+
+const onChange = setState => e => setState({ [e.target.name]: e.target.value });
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 const submitData = (e, name, email, body) => {
-  console.log('submitting...');
-  const data = {
-    name: name,
+  const payload = encode({
+    'form-name': 'contact',
+    name,
+    body,
     replyTo: email,
-    body: body,
-  };
-  return fetch('https://micro-mailer.now.sh/oliver', {
+  });
+  return fetch('/', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    mode: 'cors',
-    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: payload,
   }).then(res => {
     return res;
   });
 };
 
-const withForm = withStateHandlers(
-  ({ name = '', email = '', body = '', loading = false }) => ({
-    name,
-    email,
-    body,
-    loading,
-  }),
-  {
-    handleChange: () => e => ({ [e.target.name]: e.target.value }),
-    setEmpty: () => () => ({
-      name: '',
-      email: '',
-      body: '',
-      loading: false,
-    }),
-    setLoading: () => () => ({ loading: true }),
-  }
-);
-
-export default withForm(ContactSection);
+export default Contact;
