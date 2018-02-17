@@ -4,6 +4,10 @@ module.exports = {
     author: 'Oliver Phillips',
   },
   plugins: [
+    `gatsby-plugin-react-next`,
+    // `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,11 +50,5 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    // `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-purify-css`,
   ],
 };
