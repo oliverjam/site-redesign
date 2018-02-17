@@ -18,67 +18,67 @@ const ContactSection = ({
   setLoading,
   setEmpty,
 }) => (
-  <section aria-label={!title && label}>
-    {title && <Title>{title}</Title>}
-    <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
-      <Form
-        onSubmit={e => {
-          e.preventDefault();
-          setLoading();
-          submitData(e, name, email, body).then(response => {
-            console.log(response);
-            setEmpty();
-          });
-        }}
-      >
-        <FormRow>
-          <InputWrapper>
-            <Input
-              name="name"
-              id="name"
-              type="text"
-              required
-              value={name}
-              onChange={e => handleChange(e)}
-            />
-            <Label for="name">Name</Label>
-          </InputWrapper>
-          <InputWrapper>
-            <Input
-              name="email"
-              id="email"
-              type="text"
-              required
-              value={email}
-              onChange={e => handleChange(e)}
-            />
-            <Label for="email">Email</Label>
-          </InputWrapper>
-        </FormRow>
-        <InputWrapper>
-          <TextArea
-            name="body"
-            id="body"
-            rows="5"
-            required
-            value={body}
-            onChange={e => handleChange(e)}
-          />
-          <Label for="body">Your message</Label>
-        </InputWrapper>
-        <Button
-          width={[1, 'auto']}
-          ml={[0, 'auto']}
-          px={2}
-          py={1}
-          type="submit"
+    <section aria-label={!title && label}>
+      {title && <Title>{title}</Title>}
+      <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
+        <Form
+          onSubmit={e => {
+            e.preventDefault();
+            setLoading();
+            submitData(e, name, email, body).then(response => {
+              console.log(response);
+              setEmpty();
+            });
+          }}
         >
-          {loading ? 'Loading' : 'Submit'}
-        </Button>
-      </Form>
-    </Card>
-  </section>
-);
+          <FormRow>
+            <InputWrapper>
+              <Input
+                name="name"
+                id="name"
+                type="text"
+                required
+                value={name}
+                onChange={e => handleChange(e)}
+              />
+              <Label for="name">Name</Label>
+            </InputWrapper>
+            <InputWrapper>
+              <Input
+                name="email"
+                id="email"
+                type="text"
+                required
+                value={email}
+                onChange={e => handleChange(e)}
+              />
+              <Label for="email">Email</Label>
+            </InputWrapper>
+          </FormRow>
+          <InputWrapper>
+            <TextArea
+              name="body"
+              id="body"
+              rows="5"
+              required
+              value={body}
+              onChange={e => handleChange(e)}
+            />
+            <Label for="body">Your message</Label>
+          </InputWrapper>
+          <Button
+            width={[1, 'auto']}
+            ml={[0, 'auto']}
+            px={2}
+            py={1}
+            type="submit"
+          >
+            {loading ? 'Loading' : 'Submit'}
+          </Button>
+        </Form>
+      </Card>
+    </section>
+  );
 
 const submitData = (e, name, email, body) => {
   console.log('submitting...');
@@ -107,14 +107,14 @@ const withForm = withStateHandlers(
     loading,
   }),
   {
-    handleChange: state => e => ({ [e.target.name]: e.target.value }),
-    setEmpty: state => () => ({
+    handleChange: () => e => ({ [e.target.name]: e.target.value }),
+    setEmpty: () => () => ({
       name: '',
       email: '',
       body: '',
       loading: false,
     }),
-    setLoading: ({ loading }) => () => ({ loading: true }),
+    setLoading: () => () => ({ loading: true }),
   }
 );
 

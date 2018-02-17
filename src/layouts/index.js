@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled, { ThemeProvider } from 'styled-components';
 import { space } from 'styled-system';
 import t from '../styles/theme';
