@@ -23,8 +23,8 @@ export default css`
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    background: #faf8f5;
-    color: #728fcb;
+    color: #fff;
+    background-color: #1c1917;
   }
 
   pre[class*='language-']::-moz-selection,
@@ -32,7 +32,7 @@ export default css`
   code::-moz-selection,
   code ::-moz-selection {
     text-shadow: none;
-    background: #faf8f5;
+    background: #110f0e;
   }
 
   pre[class*='language-']::selection,
@@ -40,7 +40,7 @@ export default css`
   code::selection,
   code ::selection {
     text-shadow: none;
-    background: #faf8f5;
+    background: #110f0e;
   }
 
   /* Code blocks */
@@ -51,20 +51,25 @@ export default css`
   }
 
   /* Inline code */
-  :not(pre) > code {
-    padding: 0.1em;
-    border-radius: 0.3em;
+  code {
+    color: #ff79c6;
+    padding: 0.2em;
+  }
+
+  pre > code {
+    color: #fff;
+    padding: 0;
   }
 
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: #b6ad9a;
+    color: #ccc;
   }
 
   .token.punctuation {
-    color: #b6ad9a;
+    color: #ccc;
   }
 
   .token.namespace {
@@ -74,23 +79,17 @@ export default css`
   .token.tag,
   .token.operator,
   .token.number {
-    color: #063289;
+    color: #bd93f9;
   }
 
   .token.property,
   .token.function {
-    color: #b29762;
-  }
-
-  .token.tag-id,
-  .token.selector,
-  .token.atrule-id {
-    color: #2d2006;
+    color: #66d9ef;
   }
 
   code.language-javascript,
   .token.attr-name {
-    color: #896724;
+    color: #50fa7b;
   }
 
   code.language-css,
@@ -109,8 +108,11 @@ export default css`
   .token.unit,
   .token.statement,
   .token.regex,
-  .token.atrule {
-    color: #728fcb;
+  .token.atrule,
+  .token.tag-id,
+  .token.selector,
+  .token.atrule-id {
+    color: #ff79c6;
   }
 
   .token.placeholder,
@@ -137,7 +139,7 @@ export default css`
   }
 
   .token.important {
-    color: #896724;
+    color: #ccc;
   }
 
   .token.entity {
@@ -145,19 +147,8 @@ export default css`
   }
 
   pre > code.highlight {
-    outline: 0.4em solid #896724;
+    outline: 0.4em solid #50fa7b;
     outline-offset: 0.4em;
-  }
-
-  /* overrides color-values for the Line Numbers plugin
- * http://prismjs.com/plugins/line-numbers/
- */
-  .line-numbers .line-numbers-rows {
-    border-right-color: #ece8de;
-  }
-
-  .line-numbers-rows > span:before {
-    color: #cdc4b1;
   }
 
   /* overrides color-values for the Line Highlight plugin

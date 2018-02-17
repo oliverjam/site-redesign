@@ -10,6 +10,14 @@ injectGlobal`
     box-sizing: inherit;
   }
 
+  ::selection {
+    background-color: ${t.colors.primary};
+  }
+
+  ::-moz-selection {
+    background-color: ${t.colors.primary};
+  }
+
   html {
     box-sizing: border-box;
   }
@@ -24,7 +32,7 @@ injectGlobal`
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: ${t.colors.textLight};
     background-color: ${t.colors.bgDark};
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
