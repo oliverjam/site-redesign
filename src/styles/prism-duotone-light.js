@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import t from './theme';
 
 export default css`
   code,
@@ -52,7 +53,7 @@ export default css`
 
   /* Inline code */
   code {
-    color: #ff79c6;
+    color: ${t.colors.primary};
     padding: 0.2em;
   }
 
