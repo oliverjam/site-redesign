@@ -23,14 +23,16 @@ const Contact = ({ title, label }) => (
         <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
           <Form
             name="contact"
+            netlify
+            netlify-honeypot="bot-field"
             onSubmit={e => {
-              e.preventDefault();
               setState({ loading: true });
               submitData(e, name, email, body)
                 .then(() => {
                   setState(initialState);
                 })
                 .catch(err => console.error(err));
+              e.preventDefault();
             }}
           >
             <FormRow>
@@ -96,15 +98,14 @@ const submitData = (e, name, email, body) => {
   const payload = encode({
     'form-name': 'contact',
     name,
-    body,
     email,
+    body,
   });
+  console.log(payload);
   return fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: payload,
-  }).then(res => {
-    return res;
   });
 };
 
