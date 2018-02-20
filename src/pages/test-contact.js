@@ -25,7 +25,7 @@ export default class Contact extends React.Component {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'test-form', ...this.state }),
     })
       .then(() => this.setState({ submitted: true, loading: false }))
       .catch(error => this.setState({ error: true, loading: false }));
