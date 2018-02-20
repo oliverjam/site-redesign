@@ -39,7 +39,7 @@ export default class Contact extends React.Component {
         <h1>Contact</h1>
         {!this.state.submitted ? (
           <form
-            name="contact"
+            name="test-form"
             method="post"
             action="/thanks/"
             data-netlify="true"
