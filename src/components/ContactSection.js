@@ -4,7 +4,7 @@ import Component from 'react-component-component';
 
 import Title from './Title';
 import Card from './Card';
-import { Form, FormRow, InputWrapper, Label, Input, TextArea } from './Form';
+import { Form, Row, InputWrapper, Label, Input, TextArea } from './Form';
 import Button from './Button';
 
 const initialState = {
@@ -35,7 +35,7 @@ const Contact = ({ title, label }) => (
               e.preventDefault();
             }}
           >
-            <FormRow>
+            <Row>
               <InputWrapper>
                 <input name="bot-field" hidden />
                 <Input
@@ -59,27 +59,31 @@ const Contact = ({ title, label }) => (
                 />
                 <Label for="email">Email</Label>
               </InputWrapper>
-            </FormRow>
-            <InputWrapper>
-              <TextArea
-                name="body"
-                id="body"
-                rows="5"
-                required
-                value={body}
-                onChange={onChange(setState)}
-              />
-              <Label for="body">Your message</Label>
-            </InputWrapper>
-            <Button
-              width={[1, 'auto']}
-              ml={[0, 'auto']}
-              px={2}
-              py={1}
-              type="submit"
-            >
-              {loading ? 'Loading' : 'Submit'}
-            </Button>
+            </Row>
+            <Row>
+              <InputWrapper>
+                <TextArea
+                  name="body"
+                  id="body"
+                  rows="5"
+                  required
+                  value={body}
+                  onChange={onChange(setState)}
+                />
+                <Label for="body">Your message</Label>
+              </InputWrapper>
+            </Row>
+            <Row>
+              <Button
+                width={[1, 'auto']}
+                ml={[0, 'auto']}
+                px={2}
+                py={1}
+                type="submit"
+              >
+                {loading ? 'Loading' : 'Submit'}
+              </Button>
+            </Row>
           </Form>
         </Card>
       </section>
