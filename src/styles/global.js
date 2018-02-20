@@ -18,6 +18,10 @@ injectGlobal`
     background-color: ${t.colors.primary};
   }
 
+  [hidden] {
+    display: none !important;
+  }
+
   html {
     box-sizing: border-box;
   }

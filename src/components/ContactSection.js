@@ -23,20 +23,21 @@ const Contact = ({ title, label }) => (
         <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
           <Form
             name="contact"
-            netlify
-            netlify-honeypot="bot-field"
+            method="post"
+            action="/thanks/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={e => {
               setState({ loading: true });
               submitData(e, name, email, body)
-                .then(() => {
-                  setState(initialState);
-                })
+                .then(() => setState(initialState))
                 .catch(err => console.error(err));
               e.preventDefault();
             }}
           >
             <FormRow>
               <InputWrapper>
+                <input name="bot-field" hidden />
                 <Input
                   name="name"
                   id="name"
