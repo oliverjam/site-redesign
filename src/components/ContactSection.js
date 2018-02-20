@@ -22,7 +22,7 @@ const Contact = ({ title, label }) => (
         {title && <Title>{title}</Title>}
         <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
           <Form
-            name="contact"
+            name="contact-form"
             method="post"
             action="/thanks/"
             data-netlify="true"
@@ -97,7 +97,7 @@ const encode = data => {
 
 const submitData = (e, name, email, body) => {
   const payload = encode({
-    'form-name': 'contact',
+    'form-name': 'contact-form',
     name,
     email,
     body,
