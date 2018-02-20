@@ -2,28 +2,30 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import Container from '../components/Container';
-import ContactSection from '../components/ContactSection';
+import Title from '../components/Title';
+import Card from '../components/Card';
 
-class Contact extends React.Component {
+class Thanks extends React.Component {
   render() {
     const siteTitle = `Contact | ${this.props.data.site.siteMetadata.title}`;
     return (
       <Container maxWidth={'60ch'}>
         <Helmet title={siteTitle} />
-        <ContactSection
-          label="Get in touch"
-          title="Get in touch"
-          id="contact"
-        />
+        <section>
+          <Title>Get in touch</Title>
+          <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
+            <p>Thanks! I'll try to get back to you soon</p>
+          </Card>
+        </section>
       </Container>
     );
   }
 }
 
-export default Contact;
+export default Thanks;
 
 export const pageQuery = graphql`
-  query ContactQuery {
+  query ThanksQuery {
     site {
       siteMetadata {
         title

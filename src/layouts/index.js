@@ -17,7 +17,7 @@ const Container = styled.div`
 class Template extends React.Component {
   render() {
     const { location, children } = this.props;
-    const pages = ['/', '/blog', '/contact'];
+    const pages = ['/', '/blog', '/contact', '/thanks'];
     return (
       <ThemeProvider theme={t}>
         <Container pt={[2, 3]} pb={[4, 3]} px={[2, 3]}>
