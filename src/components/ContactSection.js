@@ -8,7 +8,6 @@ import { Form, FormRow, InputWrapper, Label, Input, TextArea } from './Form';
 import Button from './Button';
 
 const initialState = {
-  submitted: false,
   name: '',
   email: '',
   body: '',
@@ -18,66 +17,11 @@ const initialState = {
 const Contact = ({ title, label }) => (
   <Component
     initialState={initialState}
-    render={({
-      state: { name, email, body, submitted, loading },
-      setState,
-    }) => (
+    render={({ state: { name, email, body, loading }, setState }) => (
       <section aria-label={!title && label}>
         {title && <Title>{title}</Title>}
         <Card flexDirection={'column'} mx={'auto'} px={[2, 3]} py={3}>
-          {!submitted ? (
-            <form
-              name="contact"
-              method="post"
-              action="/thanks/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={e => {
-                setState({ loading: true });
-                fetch('/', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: encode({ 'form-name': 'contact', name, email, body }),
-                })
-                  .then(() => setState({ loading: false, submitted: true }))
-                  .catch(error => console.error(error));
-
-                e.preventDefault();
-              }}
-            >
-              <p hidden>
-                <label>
-                  Don’t fill this out: <input name="bot-field" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your name:<br />
-                  <input type="text" name="name" onChange={handleChange} />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your email:<br />
-                  <input type="email" name="email" onChange={handleChange} />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Message:<br />
-                  <textarea name="message" onChange={handleChange} />
-                </label>
-              </p>
-              <p>
-                <button type="submit">Send</button>
-              </p>
-            </form>
-          ) : (
-            <div>Thanks!</div>
-          )}
-          {/* <Form
+          <Form
             name="contact"
             method="post"
             action="/thanks/"
@@ -136,15 +80,14 @@ const Contact = ({ title, label }) => (
             >
               {loading ? 'Loading' : 'Submit'}
             </Button>
-          </Form> */}
+          </Form>
         </Card>
       </section>
     )}
   />
 );
 
-const handleChange = setState => e =>
-  setState({ [e.target.name]: e.target.value });
+const onChange = setState => e => setState({ [e.target.name]: e.target.value });
 
 const encode = data => {
   return Object.keys(data)
