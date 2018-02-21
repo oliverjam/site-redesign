@@ -5,6 +5,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-next`,
+    `gatsby-plugin-netlify-cms`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
